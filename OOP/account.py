@@ -4,15 +4,19 @@ class Account:
         self.__pin = pin
         self.__balance = 0
         self.is_frozen = False
-        self.deposit_history = []  # Initialize empty lists for deposits and withdrawals
+        self.deposit_history = [] 
         self.withdraw_history = []
         self.accounts_lists = []
+
+
 
     def show_balance(self,pin):
         if pin == self.__pin:
             return self.__balance
         else:
             return "wrong pin"  
+
+
 
     def deposit(self,pin, amount_deposited):
         if pin == self.__pin:
@@ -35,12 +39,16 @@ def withdraw(self, pin, amount_withdrawn):
     else:
         return "Wrong pin"
 
+
+
           
 def view_account_details(self, pin):
     if pin == self.__pin:
         return f"Your account number is {self.account_number} and current balance is ${self.__balance:.2f}"
     else:
         return "Wrong pin"
+
+
 
 
 
@@ -51,7 +59,8 @@ def update_account_ownership(self,pin,account_number,new_pin):
         else: 
             return f"please put another different pin"
     else:
-        return "wrong pin"     
+        return "wrong pin"    
+
 
 
 def account_statement(self, pin):
@@ -59,6 +68,8 @@ def account_statement(self, pin):
         return f"Your account number is {self.account_number} and current balance is ${self.__balance:.2f}"
     else:
         return "Wrong pin"
+
+
 
 def set_overdraft_limit(self, pin, amount_withdrawn):
     if pin == self.pin:
@@ -68,21 +79,27 @@ def set_overdraft_limit(self, pin, amount_withdrawn):
             return "You can only withdraw money below 250,000"
     else:
         return "Wrong pin"
+
+
     
 def calculate_interest(self, pin, balance, rate):
     if pin == self.__pin:
         interest = (balance * rate) / 100
-        return f"Your interest rate is {interest:.2f}"  # Format the interest as a floating-point number with 2 decimal places
-    else:
+        return f"Your interest rate is {interest:.2f}" 
+    else:     
         return "Wrong pin" 
 
 
+
+
 def freeze_account(self):
-        if not self.is_frozen:
+        if not self.is_frozen: 
             self.is_frozen = True
             return "Account frozen successfully."
         else:
             return "Account is already frozen."
+
+
 
 def unfreeze_account(self):
         if self.is_frozen:
@@ -90,12 +107,16 @@ def unfreeze_account(self):
             return "Account unfrozen."
         else:
             return "Account is not frozen."
+
+
             
 
 def history_transaction(self,pin):
     if pin == self.__pin:
         print("Deposits:", self.deposit_history)
         print("Withdrawals:", self.withdraw_history)
+
+
 
 
 def minimum_balance(self,pin):
@@ -111,7 +132,7 @@ def minimum_balance(self,pin):
 
 def transaction_funds(self,pin,account_transfering_to,amount_transfered):
     if pin == self.__pin:
-        return f"This {amount_transfered} has been tranfered to {account_transfering_to} account"
+        return f"Thiquote tag in htmls {amount_transfered} has been tranfered to {account_transfering_to} account"
     else:
         return "wrong pin"  
 
@@ -124,10 +145,13 @@ def cleanUp(self, pin, account_transfer):
         else:
             return "Wrong pin"
 
+
+            
+
 def close_account(self, pin, account_number):
         if pin == self.__pin:
             for account in self.accounts_lists:
-                if account_number == account.account_number:  # Assuming account has an attribute 'account_number'
+                if account_number == account.account_number:  
                     self.accounts_lists.remove(account)
                     return f"This {account_number} account has been successfully removed"
             return "The account number does not exist in the accounts list"
